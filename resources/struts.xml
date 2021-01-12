@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <!-- アクションのパッケージ定義 -->
+           <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+    <constant name="struts.devMode" value="true" />
+    <package name="default" extends="struts-default">
+
+
+        <!-- Hello worldのサンプルアクション -->
+        <action name="hello" class="sample.HelloWorldAction" method="execute">
+            <result name="success">/view/sample/HelloWorld.jsp</result>
+			 <result name="err">/view/sample/err.jsp</result>
+			  <result name="rdr" >/view/sample/err.jsp</result>
+			 <result name="input">/view/sample/err.jsp</result>
+
+
+
+        </action>
+        <action name="login" class = "sample.Login" method="execute">
+         <result name="success">/view/sample/main.jsp</result>
+         <result name="iderr">/view/sample/loginiderr.jsp</result>
+         <result name="passerr">/view/sample/loginpasserr.jsp</result>
+        </action>
+
+        <action name="whatYouSee" class = "sample.WhatYouSee" method="execute">
+         <result name="seepage">/view/sample/seepage.jsp</result>
+         <result name="timeout">/view/sample/timeout.jsp</result>
+        </action>
+    </package>
+</struts>

@@ -1,0 +1,11 @@
+<!DOCTYPE validators PUBLIC
+  "-//Apache Struts//XWork Validator 1.0.2//EN"
+  "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+<validators>
+<field name="name">
+<field-validator type="requiredstring">
+<param name="name">name</param>
+<message>"入力必須項目です"</message>
+</field-validator>
+</field>
+</validators>
