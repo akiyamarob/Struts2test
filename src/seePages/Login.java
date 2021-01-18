@@ -1,25 +1,36 @@
-package sample;
-
+package seePages;
+/**
+ * @author r.akiyama
+ * @version 1.0
+ */
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import javax.servlet.ServletContext;
 
+import org.apache.struts2.util.ServletContextAware;
 import org.hibernate.SessionFactory;
 
 import com.opensymphony.xwork2.ActionSupport;
-public class Login  extends ActionSupport{
+
+public class Login  extends ActionSupport implements ServletContextAware{
 	private String id;
 	private String pass;
 	LocalDateTime d = LocalDateTime.now();
     ServletContext context;
 	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 	private String date = d.format(formatter);
-	@SuppressWarnings("unlikely-arg-type")
+	/**
+	 * DBからID,パスワードを取得し、結果を返す。
+	 * 現在、DB周りでのエラーを調査中。
+	 * @return result
+	 *
+	 */
 	public String execute() {
 		SessionFactory sf = (SessionFactory) context.getAttribute(HibernateListener.KEY_NAME);
 		Dao Dao = new Dao(sf);
+		//Dao.findAll()を呼び出した際に、マッパーに関するエラーが発生する。
 		List<UserId> hList = Dao.findAll();
 		 System.out.println(hList);
 		if(hList.contains(id) &&pass.equals("pass") ) {
@@ -32,6 +43,10 @@ public class Login  extends ActionSupport{
 			}
 		}
 	}
+	/**
+	 * ゲッターとセッター
+	 *
+	 */
 	public String getId() {
 		return id;
 	}
@@ -51,6 +66,10 @@ public class Login  extends ActionSupport{
 	}
 	public void setDate(String date) {
 		this.date = date;
+	}
+	@Override
+    public void setServletContext(ServletContext context) {
+        this.context = context;
 	}
 
 

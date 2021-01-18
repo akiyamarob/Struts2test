@@ -21,7 +21,7 @@
     </filter-mapping>
     
     <listener>
-        <listener-class>sample.HibernateListener</listener-class>
+        <listener-class>seePages.HibernateListener</listener-class>
     </listener>
     
 </web-app>

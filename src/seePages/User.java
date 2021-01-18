@@ -1,4 +1,4 @@
-package sample;
+package seePages;
 // Generated 2021/01/14 13:40:28 by Hibernate Tools 5.4.21.Final
 
 /**

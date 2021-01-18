@@ -1,4 +1,4 @@
-package sample;
+package seePages;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 

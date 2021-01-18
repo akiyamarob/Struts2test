@@ -10,24 +10,24 @@
 
 
         <!-- Hello worldのサンプルアクション -->
-        <action name="hello" class="sample.HelloWorldAction" method="execute">
-            <result name="success">/view/sample/HelloWorld.jsp</result>
-			 <result name="err">/view/sample/err.jsp</result>
-			  <result name="rdr" >/view/sample/err.jsp</result>
-			 <result name="input">/view/sample/err.jsp</result>
+        <action name="hello" class="seePages.HelloWorldAction" method="execute">
+            <result name="success">/view/seePages/HelloWorld.jsp</result>
+			 <result name="err">/view/seePages/err.jsp</result>
+			  <result name="rdr" >/view/seePages/err.jsp</result>
+			 <result name="input">/view/seePages/err.jsp</result>
 
 
 
         </action>
-        <action name="login" class = "sample.Login" method="execute">
-         <result name="success">/view/sample/main.jsp</result>
-         <result name="iderr">/view/sample/loginiderr.jsp</result>
-         <result name="passerr">/view/sample/loginpasserr.jsp</result>
+        <action name="login" class = "seePages.Login" method="execute">
+         <result name="success">/view/seePages/main.jsp</result>
+         <result name="iderr">/view/seePages/loginiderr.jsp</result>
+         <result name="passerr">/view/seePages/loginpasserr.jsp</result>
         </action>
 
-        <action name="whatYouSee" class = "sample.WhatYouSee" method="execute">
-         <result name="seepage">/view/sample/seepage.jsp</result>
-         <result name="timeout">/view/sample/timeout.jsp</result>
+        <action name="whatYouSee" class = "seePages.WhatYouSee" method="execute">
+         <result name="seepage">/view/seePages/seepage.jsp</result>
+         <result name="timeout">/view/seePages/timeout.jsp</result>
         </action>
     </package>
 </struts>
