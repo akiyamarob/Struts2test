@@ -14,6 +14,7 @@
  <h2>pass</h2>
  	 <s:password name="pass" errorPosition="false" />
  	 <s:submit value="送信"></s:submit>
+<s:actionerror />
 
  </s:form>
  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

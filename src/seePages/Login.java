@@ -5,12 +5,12 @@ package seePages;
  */
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.servlet.ServletContext;
 
 import org.apache.struts2.util.ServletContextAware;
-import org.hibernate.SessionFactory;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -28,20 +28,75 @@ public class Login  extends ActionSupport implements ServletContextAware{
 	 *
 	 */
 	public String execute() {
-		SessionFactory sf = (SessionFactory) context.getAttribute(HibernateListener.KEY_NAME);
-		Dao Dao = new Dao(sf);
-		//Dao.findAll()を呼び出した際に、マッパーに関するエラーが発生する。
-		List<UserId> hList = Dao.findAll();
-		 System.out.println(hList);
-		if(hList.contains(id) &&pass.equals("pass") ) {
+		if(idChk(id)&&passChk(pass)) {
 			return "success";
 		}else {
-			if(!id.equals("ID") ) {
-				return "iderr";
+			if(!idChk(id) ) {
+				  addActionError("IDが間違っています");
+				  return "input";
 			}else {
-				return "passerr";
+				addActionError("パスワードが間違っています");
+				 return "input";
 			}
 		}
+	}
+
+
+
+	/**
+	 * 入力チェックを行うバリデーター
+	 */
+	public void validate() {
+	       if ( id == null || id.length() == 0 ) {
+	            addActionError("IDを入力してください");
+	        }
+	       if ( pass == null || pass.length() == 0 ) {
+	            addActionError("パスワードを入力してください");
+	        }
+
+	       if (numChk(pass) ) {
+	            addActionError("パスワードが規則と一致しません");
+	        }
+	}
+	/**
+	 * numChk
+	 * 入力値がすべて番号の場合、true、それ以外の場合、Falseを返す。
+	 * @return boolean
+	 */
+
+	public boolean numChk(String wrd) {
+	       String regex_num = "^[0-9]+$" ;
+	       Pattern p1 = Pattern.compile(regex_num);
+	       Matcher m1 = p1.matcher(wrd);
+	       boolean result = m1.matches();
+	       return result;
+	}
+
+	/**
+	 * idChk
+	 * idが指定条件の場合、true、それ以外の場合falseを返す。
+	 * DBアクセスを想定して外部化
+	 * @return boolean
+	 */
+	public boolean idChk(String id) {
+		boolean result=false;
+		if(id.equals("id") ) {
+			result = true;
+		}
+		return result;
+	}
+	/**
+	 * passChk
+	 * passが指定条件の場合、true、それ以外の場合falseを返す。
+	 * DBアクセスを想定して外部化
+	 * @return boolean
+	 */
+	public boolean passChk(String pass) {
+		boolean result=false;
+		if(pass.equals("pass") ) {
+			result = true;
+		}
+		return result;
 	}
 	/**
 	 * ゲッターとセッター

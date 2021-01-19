@@ -21,6 +21,7 @@
         </action>
         <action name="login" class = "seePages.Login" method="execute">
          <result name="success">/view/seePages/main.jsp</result>
+           <result name="input">login.jsp</result>
          <result name="iderr">/view/seePages/loginiderr.jsp</result>
          <result name="passerr">/view/seePages/loginpasserr.jsp</result>
         </action>
@@ -28,6 +29,7 @@
         <action name="whatYouSee" class = "seePages.WhatYouSee" method="execute">
          <result name="seepage">/view/seePages/seepage.jsp</result>
          <result name="timeout">/view/seePages/timeout.jsp</result>
+                    <result name="input">/view/seePages/main.jsp</result>
         </action>
     </package>
 </struts>
