@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2021/01/21 16:38:36 by Hibernate Tools 4.0.1.Final -->
+<hibernate-mapping>
+    <class name="seePages.User" table="user" schema="public">
+        <composite-id name="id" class="seePages.UserId">
+            <key-property name="id" type="java.lang.Integer">
+                <column name="id" />
+            </key-property>
+            <key-property name="name" type="string">
+                <column name="name" length="10" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

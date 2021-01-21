@@ -44,8 +44,9 @@ public class WhatYouSee extends ActionSupport{
 
 		default:
 			if(hour<18 || hour>8) {
-				addActionError("現在表示できません");
-				res ="input";
+//				addActionError("現在表示できません");
+//				res ="input";
+				res= seepages(val);
 			}else {
 				res= seepages(val);
 			}
@@ -80,10 +81,10 @@ public class WhatYouSee extends ActionSupport{
 			this.val = val;
 		}
 //urlのゲッターとセッター
-	 public String geturl() {
+	 public String getUrl() {
 		 return url;
 		}
-		public void seturl(String url) {
+		public void setUrl(String url) {
 			this.url = url;
 		}
 }

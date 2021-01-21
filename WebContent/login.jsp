@@ -9,12 +9,13 @@
 </head>
 <body>
  <s:form action="login">
- <h1>ID</h1>
- 	<s:textfield name="id" errorPosition="false" />
- <h2>pass</h2>
+ <div style="display:inline-block;white-space:nowrap;"> ID:<s:textfield name="id" errorPosition="false" /></div>
+<br>
+<div> pass:
  	 <s:password name="pass" errorPosition="false" />
- 	 <s:submit value="送信"></s:submit>
-<s:actionerror />
+ 	 <s:submit value="送信" cssClass="btn btn-primary"></s:submit>
+<s:actionerror /></div>
+
 
  </s:form>
  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
